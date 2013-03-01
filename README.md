@@ -28,6 +28,14 @@ because I cannot run a key-value server like Redis on the cluster I use.
 Feel free to make a pull request on github.
 
 
+## Testing
+
+Awkwardly, `dones` is configured with a MySQL database url from the
+environment, so to test it, you need to add a url.  For example:
+
+    DONES_DB_URL=mysql://myuser:password@localhost/mydb nosetests
+
+
 ## Requirements
 
 - Probably Python 2.7 (since that is the only version it has been tested with.)
