@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name = 'dones',
-    version = '0.1.0',
+    version = '0.2.0',
     license = 'MIT',
     description = 'Track what keys are "done" using MySQL to implement a '
                   'simple key-store.',
