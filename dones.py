@@ -28,10 +28,15 @@ def get(ns, dburl=None):
     Get a default dones object for ns.  If no dones object exists for ns yet,
     a DbDones object will be created, cached, and returned.
     '''
+    if dburl is None:
+        dburl = DONES_DB_URL
+
+    cache_key = (ns, dburl)
     if ns not in DONES_CACHE:
         dones_ns = 'dones_{}'.format(ns)
-        DONES_CACHE[ns] = DbDones(ns=dones_ns, dburl=dburl)
-    return DONES_CACHE[ns]
+        DONES_CACHE[cache_key] = DbDones(ns=dones_ns, dburl=dburl)
+
+    return DONES_CACHE[cache_key]
 
 
 class DbDones(object):
